@@ -1,50 +1,62 @@
 @font-face {
-    font-family: 'CustomFont';
-    src: url('../fonts/CustomFont.woff2') format('woff2');
+    font-family: 'BasicFont';
+    src: url('../fonts/NanumMyeongjo.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-body {
-    font-family: 'CustomFont', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    padding-top: 80px; /* 헤더 높이만큼 패딩 추가 */
+@font-face { /* 새 폰트를 위한 새로운 규칙 */
+    font-family: 'BoldFont'; /* 새 폰트 이름 */
+    src: url('../fonts/NanumMyeongjoBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
 }
 
+body {
+    font-family: 'BasicFont', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* header와 동일한 배경 색상 */
+    color: #fff; /* 텍스트 색상 조정 */
+    padding-top: 60px; /* 헤더 높이만큼 패딩 추가 */
+
+    /* 배경색을 고정 */
+    background-attachment: fixed;
+    /* 위쪽은 회색, 아래쪽은 연살구색으로 설정 */
+    background-image: 
+    linear-gradient(to bottom, grey 0%, grey 100%), 
+    linear-gradient(to bottom,  #ffdab9 0%, #ffdab9 100%);
+    /* 첫 번째 배경색은 #section 요소까지 */
+    background-size: 100% 100%, 100% 0%; 
+    /* 두 번째 배경색은 #section 요소 아래부터 시작 */
+    background-position: 0% 0%, 0% 100%;
+    /* 두 번째 배경색은 #section 요소 아래부터 시작 */
+    background-repeat: no-repeat;
+}
+
+
 #header {
+    font-family: 'BoldFont', Arial, sans-serif;
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
 }
 
 #header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    transition: all 0.3s ease;
+    margin: 1em;
+    font-size: 1.5em;
 }
 
 #nav {
-    background-color: #444;
-    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 0; /* nav 바의 두께를 더 줄임 */
-}
-
-.nav-section {
-    display: flex;
-    justify-content: center;
-    margin: 3px 0; /* 섹션 간의 간격을 더 줄임 */
 }
 
 #nav ul {
@@ -55,24 +67,23 @@ body {
 }
 
 #nav ul li {
-    margin: 0 8px; /* 항목 간의 간격을 더 줄임 */
+    margin: 0 10px;
 }
 
 #nav ul li a {
-    display: block;
     color: white;
-    text-align: center;
-    padding: 8px 10px; /* 링크의 패딩을 더 줄임 */
     text-decoration: none;
-    font-size: 0.8em; /* 폰트 사이즈를 더 줄임 */
+    font-size: 1em;
+    padding: 5px 10px;
 }
 
 #nav ul li a:hover {
-    background-color: #111;
+    background-color: #555;
+    border-radius: 5px;
 }
 
 #section {
-    padding: 20px;
+    padding: 20px; /* 내용 패딩 추가 */
 }
 
 #footer {
